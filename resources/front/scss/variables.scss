@@ -1,0 +1,21 @@
+@import '../../shared/scss/fonts/Playfair/playfair';
+@import '../../shared/scss/fonts/Noto/noto';
+
+$title-font: 'Playfair Display';
+$menu-title-font: 'Playfair Display Bold';
+$generic-font: 'Noto Serif';
+
+$typoOptions: display-4, display-3, display-2, display-1, headline, title, subtitle-1, subtitle-2, body-1, body-2, caption, overline;
+#app {
+    * {
+        font-family: $generic-font, sans-serif !important;
+    }
+    @each $typoOption in $typoOptions {
+        .#{$typoOption} {
+            font-family: $title-font, sans-serif !important;
+        }
+    }
+    .menu_title {
+        font-family: $menu-title-font, sans-serif !important;
+    }
+}

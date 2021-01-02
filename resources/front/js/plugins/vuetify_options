@@ -1,0 +1,16 @@
+import '@mdi/font/css/materialdesignicons.css'
+export default {
+    theme: {
+        themes: {
+            light: {
+                primary: '#E53935',
+                secondary: '#fff',
+                accent: '#fff',
+                error: '#fff',
+            },
+        },
+    },
+    icons: {
+        iconfont: 'mdi', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
+    },
+}
