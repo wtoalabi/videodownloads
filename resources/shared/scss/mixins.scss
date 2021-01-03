@@ -402,14 +402,9 @@ Remember to re-declare some of this in the theme state as well
 
 .menu-list-item {
     display: flex;
-    margin-top: 2rem;
-    @include min-sm-up {
-        margin-top: 0;
-    }
-
     .menu_title {
         font-size: 1.1rem !important;
         padding: 1rem;
-        color: #808080;
+        color: #000000ab;
     }
 }

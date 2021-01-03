@@ -1,26 +1,25 @@
 <template>
-    <div>
+    <div class="menu_list">
         <v-navigation-drawer
             height="100%"
             absolute
             app
             clipped
             v-model="drawer"
-            :mini-variant.sync="miniDrawer"
         >
-            <v-list dense>
-                <home_menu />
-                <my_videos_menu />
-                <install_menu />
+            <v-list dense class="list">
+                <home_menu/>
+                <my_videos_menu/>
+                <install_menu/>
             </v-list>
         </v-navigation-drawer>
     </div>
 </template>
 
 <script>
-    import home_menu from "./menus/home_menu"
-    import my_videos_menu from "./menus/my_videos_menu"
-    import install_menu from "./menus/install_menu"
+  import home_menu from "./menus/home_menu"
+  import my_videos_menu from "./menus/my_videos_menu"
+  import install_menu from "./menus/install_menu"
 
   export default {
     props: {
@@ -28,8 +27,9 @@
         default: true,
       },
     },
-    mounted() {},
-    components: {home_menu,my_videos_menu,install_menu},
+    mounted() {
+    },
+    components: {home_menu, my_videos_menu, install_menu},
     data() {
       return {
         dialog: false,
@@ -44,7 +44,8 @@
     },
     computed: {
       miniDrawer: {
-        set: function () {},
+        set: function () {
+        },
         get: function () {
           return this.$store.state.miniDrawer;
         },
@@ -52,3 +53,14 @@
     },
   };
 </script>
+<style scoped lang="scss">
+
+    .menu_list {
+        .list {
+            margin-top: 35px;
+            @media (min-width: 1280px) {
+            margin-top: 0 !important;
+            }
+        }
+    }
+</style>

@@ -3,7 +3,7 @@ export default {
     theme: {
         themes: {
             light: {
-                primary: '#E53935',
+                primary: '#f05145',
                 secondary: '#fff',
                 accent: '#fff',
                 error: '#fff',

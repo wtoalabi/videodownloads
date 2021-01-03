@@ -52,10 +52,10 @@
     .title {
         font-size: 1rem !important;
         @include min-md-up {
-            font-size: 1.6rem !important;
+            font-size: 1.4rem !important;
         }
         @include min-lg-up {
-            font-size: 2rem !important;
+            font-size: 1.8rem !important;
         }
     }
 
