@@ -53,6 +53,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/front_routes.php')
                 );
+            Route::domain(env("MAIN_URL_BASE"))
+                ->middleware(['web'])
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web/front_api_routes.php')
+                );
             /*Route::prefix('api')
                 ->middleware('api')
                 ->namespace($this->namespace)

@@ -10,6 +10,8 @@
         >
             <v-list dense>
                 <home_menu />
+                <my_videos_menu />
+                <install_menu />
             </v-list>
         </v-navigation-drawer>
     </div>
@@ -17,6 +19,8 @@
 
 <script>
     import home_menu from "./menus/home_menu"
+    import my_videos_menu from "./menus/my_videos_menu"
+    import install_menu from "./menus/install_menu"
 
   export default {
     props: {
@@ -25,7 +29,7 @@
       },
     },
     mounted() {},
-    components: {home_menu},
+    components: {home_menu,my_videos_menu,install_menu},
     data() {
       return {
         dialog: false,

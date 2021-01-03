@@ -13,23 +13,15 @@
         >
             mdi-video-wireless-outline
         </v-icon>
-        <v-toolbar-title class="mr-12 align-center">
+        <v-toolbar-title class="mr-10 align-center title">
             <span class="title ">Video Downloads</span>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-row
-            align="center"
-            style="max-width: 650px"
+            class="row help"
+            style="max-width: 650px; "
         >
-            <v-text-field
-                :append-icon-cb="() => {}"
-                placeholder="Search..."
-                single-line
-                append-icon="mdi-magnify"
-                color="white"
-                dark
-                hide-details
-            ></v-text-field>
+            <small>Help</small>
         </v-row>
     </v-app-bar>
 </template>
@@ -43,10 +35,10 @@
       setDrawer() {
         this.$store.commit("commitMiniDrawer", !this.$store.state.miniDrawer)
       },
-      go(url){
+      go(url) {
         this.$router.push(url)
       },
-      logout(){
+      logout() {
         this.$store.dispatch("logout")
       }
     },
@@ -55,7 +47,23 @@
 
 </script>
 <style scoped lang="scss">
-    .title{
-        font-family: Oswald,serif;
+    @import "~/scss/mixins";
+
+    .title {
+        font-size: 1rem !important;
+        @include min-md-up {
+            font-size: 1.6rem !important;
+        }
+        @include min-lg-up {
+            font-size: 2rem !important;
+        }
+    }
+
+    .row {
+        justify-content: flex-end;
+    }
+
+    .help {
+        padding: 5px;
     }
 </style>

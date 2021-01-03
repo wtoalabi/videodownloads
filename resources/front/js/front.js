@@ -6,7 +6,7 @@ require('./bootstrap');
 import store from './vuex'
 import router from './router'
 Vue.use(Vuetify);
-window.prefixedURL = `${location.origin}/video-api`;
+window.prefixedURL = `${location.origin}/f-api`;
 const app = new Vue({
     el: '#front',
     router,

@@ -5,7 +5,7 @@ module.exports = {
         alias: {
             'node_modules': path.join(__dirname, 'node_modules'),
             '@': path.resolve(__dirname, '../../resources/front/js/'),
-            '~': path.resolve(__dirname, '../../resources/shared/js/')
+            '~': path.resolve(__dirname, '../../resources/shared/')
         }
     },
 };

@@ -47,10 +47,6 @@ $screen-xxxl: 2560px;
 /*
 Remember to re-declare some of this in the theme state as well
 */
-
-$primary-color: #6b0f39;
-$secondary-color: #ffe4e5;
-$light-color: #fff;
 * {
     word-break: break-word;
 }
@@ -59,8 +55,8 @@ $light-color: #fff;
     @media (min-width: #{$screen-xs}) {
         @content;
     }
-}
 
+}
 @mixin min-xs {
     //@media (min-width: #{$screen-sm}) and (max-width: #{$screen-md}){
     @media (min-width: #{$screen-xs}) {
@@ -412,7 +408,7 @@ $light-color: #fff;
     }
 
     .menu_title {
-        font-size: 1.4rem !important;
+        font-size: 1.1rem !important;
         padding: 1rem;
         color: #808080;
     }

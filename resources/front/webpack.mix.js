@@ -58,7 +58,7 @@ mix.options({
 mix.js('../../resources/front/js/front.js', 'js').vue({ version: 2 });
 mix.sass('../../resources/front/scss/front.scss', 'css')
     .options({
-        extractVueStyles: false,
+        extractVueStyles: true,
         globalVueStyles: '../../resources/front/scss/mixins.scss'
     })
     .disableSuccessNotifications();

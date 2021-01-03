@@ -12,5 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
+    
+    
+    Route::prefix('f-api')->middleware(['front'])->group(function () {
+        Route::get('/meta-data', 'Front\Pages\FrontControllers@index')->name('haha');
+    });
