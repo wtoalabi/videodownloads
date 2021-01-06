@@ -57,7 +57,7 @@
 
 <script>
   import validations from "./url_validations";
-  import Youtube from "./Results/Youtube"
+  import Youtube from "./Results/Youtube/Youtube"
 
   export default {
     mounted() {

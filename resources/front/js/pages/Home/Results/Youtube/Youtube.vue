@@ -26,21 +26,29 @@
                     <v-img width="50%" v-else src="/images/default_video_image.svg"></v-img>
                 </v-col>
             </v-row>
+            <v-row style="display: flex; justify-content: center">
+                <v-col cols="12">
+                    <formats-table/>
+                </v-col>
+            </v-row>
         </div>
     </div>
 </template>
 
 <script>
+
+  import FormatsTable from "./FormatsTable";
+
   export default {
     mounted() {
       console.log(this.results, "RESULT IN YOUTBE");
     },
+    components: {FormatsTable},
     data() {
       return {
         reload: 0,
         chip_colors: [
           "#FF8A80",
-          "#EA80FC",
           "#E3F2FD",
           "#EDE7F6",
           "#E1F5FE",
@@ -72,13 +80,13 @@
       results() {
         return this.$store.state.video.results
       },
-      getFullDate(){
-        let year = this.results.upload_date.substr(0,4);
-        let month = this.results.upload_date.substr(4,2);
-        let day = this.results.upload_date.substr(6,2);
+      getFullDate() {
+        let year = this.results.upload_date.substr(0, 4);
+        let month = this.results.upload_date.substr(4, 2);
+        let day = this.results.upload_date.substr(6, 2);
         return `${day} - ${month} - ${year}`;
       },
-      getFullLength(){
+      getFullLength() {
         return (this.results.duration / 60).toFixed(2);
       }
     }
@@ -92,7 +100,8 @@
         flex-direction: column;
         align-items: center;
     }
-    .text{
+
+    .text {
         color: grey;
     }
 </style>
