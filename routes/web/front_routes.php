@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
     Route::middleware(['front'])->group(function () {
-        Route::get('/home', 'Front\Pages\FrontControllers@index')->name('haha');
+        Route::get('/', 'Front\Pages\FrontControllers@index')->name('haha');
     });
 
 

@@ -57,7 +57,7 @@ export default async function Stateful(url, {
             return;
         }
         if (sendErrorDataBack) {
-            store.commit("commitErrorData", errorData.response.data);
+            store.commit("commitErrorData", errorData.response);
         }
         store.commit("stopStateLoading");
         if (errorData.response) {

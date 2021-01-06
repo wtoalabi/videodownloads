@@ -3,4 +3,5 @@ export default {
     loaded: false,
     loading: true,
     title: '',
+    errorDataMessage: null
 }

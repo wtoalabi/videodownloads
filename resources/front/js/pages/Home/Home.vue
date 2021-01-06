@@ -11,10 +11,22 @@
             <v-row>
                 <v-col
                     cols="12"
-                    sm="8"
-                    md="8"
+                    sm="10"
+                    md="10"
                 >
+                    <div v-if="showErrorMessage">
+                        <v-alert
+                            text
+                            rounded
+                            type="error"
+                        >
+                            {{errorMessage}}
+                        </v-alert>
+                    </div>
                     <v-text-field
+                        v-model="inputText"
+                        @click:clear="clear"
+                        auto
                         color="black"
                         @input="processInput"
                         outlined
@@ -23,13 +35,19 @@
                         rounded
                     >
                     </v-text-field>
-                    <v-progress-linear
-                        color="primary"
-                        height="10"
-                        striped
-                        stream
-                        indeterminate
-                    ></v-progress-linear>
+                    <div v-if="loading">
+                        <v-progress-linear
+                            color="primary"
+                            height="10"
+                            striped
+                            stream
+                            indeterminate
+                        />
+                        <div class="processing_text">
+                            Processing Video...please wait and stay on this page!
+                        </div>
+                    </div>
+                    <component :is="service"></component>
                 </v-col>
             </v-row>
             <v-spacer/>
@@ -38,18 +56,85 @@
 </template>
 
 <script>
+  import validations from "./url_validations";
+  import Youtube from "./Results/Youtube"
+
   export default {
+    mounted() {
+      this.$store.commit("fakeVideoData")
+    },
+    components: {Youtube},
     data() {
       return {
+        reloadWithResult: 0,
+        inputText: "",
+        service: "youtube",
+        result: {},
+        errorMessage: "",
+        showErrorMessage: false,
         video_url: ""
       }
     },
     methods: {
-      processInput(text) {
-        console.log(text, "TEXT")
+      processInput(url) {
+        if (url) {
+          this.clear();
+          this.showErrorMessage = false;
+          if (url.length === 0) {
+            return this.showErrorMessage = false;
+          }
+          if (this.isValidUrl(url)) {
+            this.$store.dispatch("processUrl", {url, 'service': this.service});
+            this.showErrorMessage = false;
+            return;
+          }
+          this.showErrorMessage = true;
+        }
+      },
+      isValidUrl(text) {
+        if (validations.validUrl(text)) {
+          let service = validations.isSupported(text);
+          if (service) {
+            this.service = service;
+            return true;
+          } else {
+            this.errorMessage = "This service is not currently being supported..."
+          }
+        } else {
+          this.errorMessage = "The url is not a valid URL..."
+        }
+        return false;
+      },
+      clear() {
+        this.showErrorMessage = false;
+        this.errorMessage = "";
+        this.$store.commit("clearResults");
+        this.result = "";
+        this.video_url = "";
       }
     },
-    computed: {}
+    watch: {
+      serverError() {
+        this.errorMessage = this.serverError;
+        this.showErrorMessage = true;
+        console.log(this.serverError)
+      },
+      results() {
+        this.reloadWithResult++;
+        this.inputText = "";
+      }
+    },
+    computed: {
+      loading() {
+        return this.$store.state.loading;
+      },
+      serverError() {
+        return this.$store.state.errorDataMessage;
+      },
+      results() {
+        return this.$store.state.video.result;
+      }
+    }
   }
 
 </script>
@@ -75,13 +160,22 @@
         }
 
         .image_container {
-            width: 50%;
+            width: 30%;
             margin: auto;
 
             .image {
                 width: 100%;
                 height: 100%;
             }
+        }
+
+        .error {
+            color: red;
+        }
+
+        .processing_text {
+            text-align: center;
+            margin-top: 1rem;
         }
 
         /*.image {
