@@ -9,5 +9,6 @@ export default {
     },
     fakeVideoData(state){
         state.video.results = single;
+        console.log(single)
     }
 }
