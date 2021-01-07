@@ -20,9 +20,14 @@
         </template>
 
         <template v-slot:item.download="{ item }">
-            <a href="#">
-                <v-icon>mdi-download</v-icon>
-            </a>
+            <v-tooltip left>
+                <template v-slot:activator="{ on, attrs }">
+                    <a target="_blank" :download="fileName" :href="item.url">
+                        <v-icon>mdi-download</v-icon>
+                    </a>
+                </template>
+                <span>You can click to download or right click to copy the link to your clipboard</span>
+            </v-tooltip>
         </template>
 
         <template v-slot:item.filesize="{ item }">
@@ -76,13 +81,21 @@
       }
     },
     methods: {
+      downloadVideo(item){
+        console.log(item,"ITEM");
+
+        let anchor = document.createElement('a');
+        anchor.href = item.url;
+        anchor.target = '_blank';
+        anchor.download = this.fileName;
+        anchor.click();
+      },
       formatSize(size) {
         let fSize = byteSize(size)
         return `${fSize.value} ${fSize.unit}`
       },
       reformatFormatTitle(format) {
-        return format;
-        //return format.split("-")[1].trim()
+        return format.split("-")[1].trim()
       },
       getFormatType(type) {
         let selectedType = this.formatTypes[type];
@@ -91,9 +104,13 @@
       getFormatTypeColor(type) {
         let selectedType = this.formatTypes[type];
         return selectedType === "Audio" ? "#E1BEE7" : selectedType === "Video" ? "#EF9A9A" : "grey"
-      }
+      },
+
     },
     computed: {
+      fileName(){
+        return this.$store.state.video.results.title;
+      },
       sortedFormats() {
         return _.sortBy(this.$store.state.video.results.formats, 'filesize').filter(function (format) {
           return format.filesize > 1;
