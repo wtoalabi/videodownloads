@@ -32,6 +32,7 @@
     "dependencies": {
         "browser-sync": "^2.26.13",
         "browser-sync-webpack-plugin": "^2.3.0",
+        "byte-size": "^7.0.0",
         "laravel-mix": "^6.0.5",
         "vue-template-compiler": "^2.6.12"
     }

@@ -1,15 +1,44 @@
 <template>
     <v-data-table
         :headers="headers"
+        :items-per-page="formats.length"
         :items="formats"
         class="elevation-1"
         hide-default-footer
-        disable-sort
-    ></v-data-table>
+    >
+        <template v-slot:item.format="{ item }">
+            {{reformatFormatTitle(item.format)}}
+        </template>
+
+        <template v-slot:item.ext="{ item }">
+            <div class="expanded_column">
+                <v-chip small>{{item.ext}}</v-chip>
+                <v-chip small :color="getFormatTypeColor(item.format_id)">
+                    {{getFormatType(item.format_id)}}
+                </v-chip>
+            </div>
+        </template>
+
+        <template v-slot:item.download="{ item }">
+            <a href="#">
+                <v-icon>mdi-download</v-icon>
+            </a>
+        </template>
+
+        <template v-slot:item.filesize="{ item }">
+            {{formatSize(item.filesize)}}
+        </template>
+    </v-data-table>
 </template>
 <script>
+  //const byteSize = require('byte-size')
+  import byteSize from 'byte-size'
+
   export default {
-    data () {
+    mounted() {
+      console.log(this.formats);
+    },
+    data() {
       return {
         headers: [
           {
@@ -17,93 +46,68 @@
             align: 'start',
             sortable: false,
             value: 'format',
+            width: '30%'
           },
-          { text: 'Download', value: 'download' },
-          { text: 'Size', value: 'size' },
+          {text: 'Ext/Type', align: 'center', value: 'ext', sortable: false, width: "30%"},
+          {text: 'Download', align: 'center', value: 'download', sortable: false},
+          {text: 'Size', value: 'filesize', align: 'center', sortable: true},
         ],
-        formats: [
-          {
-            format: 'Frozen Yogurt',
-            download: 159,
-            fat: 6.0,
-            size: 24,
-            protein: 4.0,
-            iron: '1%',
-          },
-          {
-            format: 'Ice cream sandwich',
-            download: 237,
-            fat: 9.0,
-            size: 37,
-            protein: 4.3,
-            iron: '1%',
-          },
-          {
-            format: 'Eclair',
-            download: 262,
-            fat: 16.0,
-            size: 23,
-            protein: 6.0,
-            iron: '7%',
-          },
-          {
-            format: 'Cupcake',
-            download: 305,
-            fat: 3.7,
-            size: 67,
-            protein: 4.3,
-            iron: '8%',
-          },
-          {
-            format: 'Gingerbread',
-            download: 356,
-            fat: 16.0,
-            size: 49,
-            protein: 3.9,
-            iron: '16%',
-          },
-          {
-            format: 'Jelly bean',
-            download: 375,
-            fat: 0.0,
-            size: 94,
-            protein: 0.0,
-            iron: '0%',
-          },
-          {
-            format: 'Lollipop',
-            download: 392,
-            fat: 0.2,
-            size: 98,
-            protein: 0,
-            iron: '2%',
-          },
-          {
-            format: 'Honeycomb',
-            download: 408,
-            fat: 3.2,
-            size: 87,
-            protein: 6.5,
-            iron: '45%',
-          },
-          {
-            format: 'Donut',
-            download: 452,
-            fat: 25.0,
-            size: 51,
-            protein: 4.9,
-            iron: '22%',
-          },
-          {
-            format: 'KitKat',
-            download: 518,
-            fat: 26.0,
-            size: 65,
-            protein: 7,
-            iron: '6%',
-          },
-        ],
+        formatTypes: {
+          160: "Video",
+          249: "Audio",
+          250: "Audio",
+          278: "Video",
+          133: "Video",
+          242: "Video",
+          140: "Audio",
+          251: "Audio",
+          134: "Video",
+          243: "Video",
+          135: "Video",
+          244: "Video",
+          18: "Video",
+          136: "Video",
+          247: "Video",
+          248: "Video",
+          137: "Video",
+          271: "Video",
+          313: "Video",
+        }
       }
     },
+    methods: {
+      formatSize(size) {
+        let fSize = byteSize(size)
+        return `${fSize.value} ${fSize.unit}`
+      },
+      reformatFormatTitle(format) {
+        return format;
+        //return format.split("-")[1].trim()
+      },
+      getFormatType(type) {
+        let selectedType = this.formatTypes[type];
+        return selectedType || "Unknown";
+      },
+      getFormatTypeColor(type) {
+        let selectedType = this.formatTypes[type];
+        return selectedType === "Audio" ? "#E1BEE7" : selectedType === "Video" ? "#EF9A9A" : "grey"
+      }
+    },
+    computed: {
+      sortedFormats() {
+        return _.sortBy(this.$store.state.video.results.formats, 'filesize').filter(function (format) {
+          return format.filesize > 1;
+        })
+      },
+      formats() {
+        return this.sortedFormats;
+      },
+    }
   }
 </script>
+<style scoped lang="scss">
+    .expanded_column{
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
