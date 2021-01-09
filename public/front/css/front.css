@@ -30363,6 +30363,10 @@ Remember to re-declare some of this in the theme state as well
   display: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .menu-list-item {
   display: flex;
 }

@@ -17,6 +17,7 @@ import merge from 'lodash-es/merge';
 import random from 'lodash-es/random';
 import shuffle from 'lodash-es/shuffle';
 import sortBy from 'lodash-es/sortBy';
+import orderBy from 'lodash-es/orderBy';
 
 
 let isNotEmpty = (value)=>{
@@ -37,4 +38,4 @@ let debounce = (func, timeout) => {
     }, timeout)
 
 };
-export default {isObject, has,isEmpty, debounce, truncate, chunk, map, cloneDeep,uniq, minBy,maxBy,isNotEmpty, difference, uniqBy, isUndefined,isPercentage,isArray,take,merge, random,shuffle, sortBy}
+export default {isObject, has,isEmpty, debounce, truncate, chunk, map, cloneDeep,uniq, minBy,maxBy,isNotEmpty, difference, uniqBy, isUndefined,isPercentage,isArray,take,merge, random,shuffle, sortBy,orderBy}

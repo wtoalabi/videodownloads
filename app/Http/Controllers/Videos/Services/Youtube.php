@@ -21,6 +21,6 @@
                 throw new ProcessFailedException($process);
             }
             
-            return response(['data' => $process->getOutput(), 'message' => "Done","service" => "youtube"], 200);
+            return response(['data' => $process->getOutput(), 'message' => "Done"], 200);
         }
     }

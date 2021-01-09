@@ -9,7 +9,8 @@ export default {
         state.video.results = {}
     },
     fakeVideoData(state){
-        state.video.results = single;
+        state.video.results = playlist;
         console.log(single)
+        console.log(playlist)
     }
 }
