@@ -1,4 +1,5 @@
 import Vue from 'vue';
+
 let humanize = require('humanize-duration');
 let dateFormat = require("dateformat");
 
@@ -13,13 +14,16 @@ Vue.filter('full_date', function (date) {
 })
 
 Vue.filter('full_length', function (duration) {
-    return humanize(duration*1000);
+    return humanize(duration * 1000);
 });
 
+Vue.filter('format_date_from_timestamp', function (timestamp) {
+    return formatDateFromTimestamp(timestamp)
+});
 
-Vue.filter('get_youtube_expiring_date', function(url, multiplier=1000){
-    let dateInDigits = parseInt(getParameterByName("expire", url))*multiplier;
-    return dateFormat(dateInDigits,"dddd, mmm dS, yyyy, h:MM:ss TT");
+Vue.filter('get_youtube_expiring_date', function (url) {
+    let dateInDigits = parseInt(getParameterByName("expire", url)) * 1000;
+    return formatDateFromTimestamp(dateInDigits);
     function getParameterByName(name, url) {
         name = name.replace(/[\[\]]/g, '\\$&');
         let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
@@ -29,3 +33,7 @@ Vue.filter('get_youtube_expiring_date', function(url, multiplier=1000){
         return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
 });
+
+function formatDateFromTimestamp(timestamp) {
+    return dateFormat(timestamp, "dddd, mmm dS, yyyy, h:MM:ss TT");
+}

@@ -48,7 +48,9 @@
 </script>
 <style scoped lang="scss">
     @import "~/scss/mixins";
-
+    a{
+        color: #fff !important;
+    }
     .title {
         font-size: 1rem !important;
         @include min-md-up {
