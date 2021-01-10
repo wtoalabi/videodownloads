@@ -15,7 +15,7 @@
 
   export default {
     mounted() {
-      console.log(this.results, "RESULT IN YOUTBE");
+      this.$store.commit("saveIncomingURL", this.$route.query.url)
     },
     components:{Single,Playlist},
     data() {
@@ -41,7 +41,7 @@
       },
       videoType(){
         return this.results.webpage_url_basename === 'playlist' ? "playlist" : "single"
-      }
+      },
     }
   }
 

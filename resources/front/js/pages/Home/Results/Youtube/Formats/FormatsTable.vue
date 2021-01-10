@@ -22,7 +22,7 @@
         <template v-slot:item.download="{ item }">
             <v-tooltip left>
                 <template v-slot:activator="{ on, attrs }">
-                    <a target="_blank" :download="fileName" :href="item.url">
+                    <a  target="_blank" :download="fileName" :href="item.url">
                         <v-icon>mdi-download</v-icon>
                     </a>
                 </template>
@@ -43,8 +43,8 @@
     mounted() {
       console.log(this.formats);
     },
-    props:{
-      propFormats:{
+    props: {
+      propFormats: {
         default: function () {
           return {}
         }
@@ -93,8 +93,8 @@
       }
     },
     methods: {
-      downloadVideo(item){
-        console.log(item,"ITEM");
+      downloadVideo(item) {
+        console.log(item, "ITEM");
 
         let anchor = document.createElement('a');
         anchor.href = item.url;
@@ -117,14 +117,29 @@
         let selectedType = this.formatTypes[type];
         return selectedType === "Audio" ? "#E1BEE7" : selectedType === "Video" ? "#EF9A9A" : "grey"
       },
-
+      download() {
+        axios({
+          url: 'https://source.unsplash.com/random/500x500',
+          method: 'GET',
+          responseType: 'blob'
+        })
+          .then((response) => {
+            const url = window.URL
+              .createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', 'image.jpg');
+            document.body.appendChild(link);
+            link.click();
+          })
+      }
     },
     computed: {
-      fileName(){
+      fileName() {
         return this.$store.state.video.results.title;
       },
       sortedFormats() {
-        return _.orderBy(this.propFormats, ['filesize'],['desc']).filter(function (format) {
+        return _.orderBy(this.propFormats, ['filesize'], ['desc']).filter(function (format) {
           return format.filesize > 1;
         })
       },
@@ -135,7 +150,7 @@
   }
 </script>
 <style scoped lang="scss">
-    .expanded_column{
+    .expanded_column {
         display: flex;
         justify-content: space-evenly;
     }

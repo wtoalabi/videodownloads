@@ -14,14 +14,14 @@
             mdi-video-wireless-outline
         </v-icon>
         <v-toolbar-title class="mr-10 align-center title">
-            <span class="title ">Video Downloads</span>
+            <a @click.prevent="go('/')" class="title">Video Downloads</a>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-row
             class="row help"
             style="max-width: 650px; "
         >
-            <small>Help</small>
+            <a @click.prevent="go('help')">Help</a>
         </v-row>
     </v-app-bar>
 </template>

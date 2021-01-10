@@ -1,5 +1,6 @@
 import Vue from "vue";
-
+import { forage} from '../../shared/js/shared';
+window.forage = forage.default;
 require('../../shared/js/bootstrap');
 
 require("./utils/GlobalFilters");

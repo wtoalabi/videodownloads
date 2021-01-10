@@ -1,7 +1,7 @@
 <template>
     <div>
         <v-row>
-            <v-col cols="12" md="6">
+            <v-col cols="12" md="7">
                 <div class="mt-44">
                     <strong>{{results.title | shorten(90)}}</strong>
                 </div>
@@ -19,10 +19,13 @@
                 <div class="mt-4">
                     <strong>Total Playtime:</strong> <span class="text">{{getFullLength | full_length}}</span>
                 </div>
+                <div class="mt-4">
+                    <strong>Links Expire On:</strong> <span class="text">{{results.entries[0].formats[0].url | get_youtube_expiring_date}}</span>
+                </div>
             </v-col>
-            <v-col cols="12" md="6" class="centered">
+            <v-col cols="12" md="5" class="centered">
                 <v-img v-if="newestAddition.thumbnail" :src="newestAddition.thumbnail"></v-img>
-                <v-img width="60%" v-else src="/images/default_video_image.svg"></v-img>
+                <v-img width="50%" v-else src="/images/default_video_image.svg"></v-img>
             </v-col>
         </v-row>
         <v-row style="display: flex; justify-content: center">

@@ -122,6 +122,10 @@
       results() {
         this.reloadWithResult++;
         this.inputText = "";
+      },
+      incomingURL(){
+        this.inputText =  this.incomingURL
+        this.processInput(this.inputText)
       }
     },
     computed: {
@@ -133,6 +137,9 @@
       },
       results() {
         return this.$store.state.video.result;
+      },
+      incomingURL(){
+        return this.$store.state.video.incomingURL
       }
     }
   }

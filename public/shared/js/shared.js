@@ -31,6 +31,7 @@ var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 var Vuex = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.common.js");
 var VueRouter = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 var forage = __webpack_require__(/*! ./utils/forage */ "./js/utils/forage.js");
+window.forage = forage;
 
 /***/ }),
 
@@ -145,6 +146,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var lodash_es_random__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! lodash-es/random */ "./node_modules/lodash-es/random.js");
 /* harmony import */ var lodash_es_shuffle__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! lodash-es/shuffle */ "./node_modules/lodash-es/shuffle.js");
 /* harmony import */ var lodash_es_sortBy__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! lodash-es/sortBy */ "./node_modules/lodash-es/sortBy.js");
+/* harmony import */ var lodash_es_orderBy__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! lodash-es/orderBy */ "./node_modules/lodash-es/orderBy.js");
+
 
 
 
@@ -204,7 +207,8 @@ var debounce = function debounce(func, timeout) {
   merge: lodash_es_merge__WEBPACK_IMPORTED_MODULE_15__.default,
   random: lodash_es_random__WEBPACK_IMPORTED_MODULE_16__.default,
   shuffle: lodash_es_shuffle__WEBPACK_IMPORTED_MODULE_17__.default,
-  sortBy: lodash_es_sortBy__WEBPACK_IMPORTED_MODULE_18__.default
+  sortBy: lodash_es_sortBy__WEBPACK_IMPORTED_MODULE_18__.default,
+  orderBy: lodash_es_orderBy__WEBPACK_IMPORTED_MODULE_19__.default
 });
 
 /***/ }),

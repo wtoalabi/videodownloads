@@ -9,7 +9,7 @@
         >
             <v-list dense class="list">
                 <home_menu/>
-                <my_videos_menu/>
+                <downloaded_videos_menu/>
                 <install_menu/>
             </v-list>
         </v-navigation-drawer>
@@ -18,7 +18,7 @@
 
 <script>
   import home_menu from "./menus/home_menu"
-  import my_videos_menu from "./menus/my_videos_menu"
+  import downloaded_videos_menu from "./menus/downloaded_videos_menu"
   import install_menu from "./menus/install_menu"
 
   export default {
@@ -29,7 +29,7 @@
     },
     mounted() {
     },
-    components: {home_menu, my_videos_menu, install_menu},
+    components: {home_menu, downloaded_videos_menu, install_menu},
     data() {
       return {
         dialog: false,
