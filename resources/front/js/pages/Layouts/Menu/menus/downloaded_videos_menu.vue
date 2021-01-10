@@ -25,7 +25,6 @@
     methods: {},
     computed: {
       activeColor() {
-        console.log(this.$route.name)
         if (this.$route.name === "DownloadedVideos") {
           return 'red'
         }

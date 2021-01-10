@@ -8,10 +8,12 @@ export default {
     },
     clearResults(state){
         state.video.results = {}
+        state.errorDataMessage = null
     },
     fakeVideoData(state){
         //state.video.results = single;
         state.video.results = playlist;
+        store.commit("commitCancelToken");
         //store.dispatch("persistToLocalStore");
         //console.log(single)
         //console.log(playlist)
@@ -23,7 +25,6 @@ export default {
         state.video.incomingURL = url
     },
     commitVideosFromStore(state, payload){
-        console.log(payload,"COMITTTTITNGN")
         state.video.downloaded = payload
     }
 }

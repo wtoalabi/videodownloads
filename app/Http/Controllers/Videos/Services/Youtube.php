@@ -7,6 +7,8 @@
     namespace App\Http\Controllers\Videos\Services;
     
     
+    use Illuminate\Support\Facades\Log;
+    use \Exception;
     use Symfony\Component\Process\Exception\ProcessFailedException;
     use Symfony\Component\Process\Process;
 
@@ -18,7 +20,9 @@
             $process->run();
 
             if (!$process->isSuccessful()) {
-                throw new ProcessFailedException($process);
+                $e = new ProcessFailedException($process);
+                Log::error($e);
+                throw new Exception("Unable to download video...please try again later.");
             }
             
             return response(['data' => $process->getOutput(), 'message' => "Done"], 200);

@@ -38,7 +38,9 @@ export default async function Stateful(url, {
         let extraData = store.state.mergeAllQueries();
         data = {...extraData, ...data}
     }
-    await axios[action](`${prefixed}${urlSuffix}`, data).then(response => {
+    await axios[action](`${prefixed}${urlSuffix}`, data,{
+        cancelToken: store.state.cancelToken ? store.state.cancelToken.token : null,
+    }).then(response => {
         store.commit("stopStateLoading");
         let data = response.data
         if (mutator) {

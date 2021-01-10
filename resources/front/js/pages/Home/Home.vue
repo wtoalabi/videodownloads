@@ -81,6 +81,7 @@
     },
     methods: {
       processInput(url) {
+        this.showErrorMessage = false;
         if (url) {
           this.clear();
           this.showErrorMessage = false;

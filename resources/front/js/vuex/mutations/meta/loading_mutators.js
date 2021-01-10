@@ -13,6 +13,11 @@ export default {
     },
     stopLoading(){},
     stopStateLoading(state, errors){
-        return state.loading = false;
+        state.loading = false;
     },
+    commitCancelToken(state, token){
+        const CancelToken = axios.CancelToken;
+        state.cancelToken = CancelToken.source();
+    },
+
 }

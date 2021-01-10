@@ -107,7 +107,6 @@
 
       },
       go(url){
-        console.log(url);
         this.$router.push({ path: '/', query: { url: url } })
       },
 

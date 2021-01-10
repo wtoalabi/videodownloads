@@ -3,6 +3,7 @@ import Store from "../vuex";
 import {VueRouter} from "../../../shared/js/shared";
 import help from "./help";
 import downloaded_videos from "./downloaded_videos";
+import extension from "./extension";
 
 Vue.use(VueRouter.default);
 
@@ -20,6 +21,7 @@ const router = new VueRouter.default({
         },
         ...help,
         ...downloaded_videos,
+        ...extension,
         {
             path: '*',
             component: () => import('../pages/NotFound/NotFound'),

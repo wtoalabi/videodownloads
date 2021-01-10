@@ -9,5 +9,6 @@ export default {
     },
     cancelLoading(store){
         store.state.loading = false
+        store.state.cancelToken.cancel();
     }
 }

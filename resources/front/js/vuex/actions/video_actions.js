@@ -3,6 +3,7 @@ import video_getters from "../getters/video_getters";
 
 export default {
     async processUrl(store, payload) {
+        store.commit("commitCancelToken");
         await Stateful("process-video", {
             action: "post",
             store,
