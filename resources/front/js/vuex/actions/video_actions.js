@@ -31,12 +31,12 @@ export default {
     getVideosFromStore(store) {
         return forage.getItem("downloaded").then(downloaded => {
             if (downloaded) {
-                let data = Object.entries(downloaded).map(function (data) {
+                let data = _.orderBy(Object.entries(downloaded).map(function (data) {
                     return {
                         id: data[0],
                         data: data[1]
                     }
-                });
+                }),["id"],["desc"])
                 store.commit("commitVideosFromStore", data)
             }
         });

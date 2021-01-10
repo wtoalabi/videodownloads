@@ -30376,3 +30376,25 @@ a {
   padding: 1rem;
   color: #000000ab;
 }
+
+.downloaded_videos .v-data-table__mobile-row {
+  display: flex !important;
+  width: 100% !important;
+  justify-content: space-between !important;
+}
+.downloaded_videos .v-data-table__mobile-row:nth-child(1) {
+  justify-content: center !important;
+}
+.downloaded_videos .v-data-table__mobile-row:nth-child(2) .v-data-table__mobile-row__cell {
+  text-align: center;
+}
+.downloaded_videos .v-data-table__mobile-row .v-data-table__mobile-row__cell {
+  text-align: center;
+}
+.downloaded_videos .v-data-table__mobile-row .v-data-table__mobile-row__cell:nth-child(2) {
+  text-align: end;
+}
+.downloaded_videos .v-data-table__mobile-row .thumb {
+  width: 75% !important;
+  margin-top: 1rem !important;
+}

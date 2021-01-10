@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="downloaded_videos">
         <v-data-table
             :headers="headers"
             :items="videos"
@@ -11,7 +11,7 @@
             loading-text="Loading Saved Videos..."
             :items-per-page="20"
             :loading="loading"
-            must-sort
+            disable-sort
             no-data-text="No Video Saved Yet..."
         >
             <template v-slot:top>
@@ -22,10 +22,29 @@
                 ></v-text-field>
             </template>
 
+            <template v-slot:item.thumb="{ item }">
+                <div class="thumb_container">
+                    <v-img class="thumb" height="100%" width="100%" :src="item.data.thumb"></v-img>
+                </div>
+            </template>
+
             <template v-slot:item.video="{ item }">
-                <a class="link"
-                   :href="generateURL(item.data.url)">{{item.data.title | shorten(50)}}</a>
-                <a class="ml-2" :href="item.data.url" target="_blank"><v-icon small>mdi-open-in-new</v-icon></a>
+
+                <v-tooltip bottom>
+                    <template v-slot:activator="{ on, attrs }">
+                        <a
+                            v-bind="attrs"
+                            v-on="on"
+                            class="link"
+                            @click.prevent="go(item.data.url)"
+                            href="">{{item.data.title |
+                            shorten(50)}}</a>
+                        <a class="ml-2" :href="item.data.url" target="_blank">
+                            <v-icon small>mdi-open-in-new</v-icon>
+                        </a>
+                    </template>
+                    <span>{{item.data.title}}</span>
+                </v-tooltip>
             </template>
             <template v-slot:item.time="{ item }">
                 <span>{{item.data.time | format_date_from_timestamp}}</span>
@@ -53,20 +72,26 @@
         search: '',
         headers: [
           {
-            text: 'Video',
+            text: '',
+            align: 'center',
+            sortable: false,
+            value: 'thumb',
+          }, {
+            text: '',
             align: 'start',
             sortable: false,
             value: 'video',
           },
           {
-            text: 'Date',
+            text: 'Date Accessed',
             align: 'center',
             sortable: true,
             value: 'time',
           },
           {
             text: 'Uploader',
-            align: 'start',
+            align: 'center' +
+              '',
             sortable: false,
             value: 'uploader',
           },
@@ -81,9 +106,14 @@
           value.toString().toLowerCase().indexOf(search) !== -1
 
       },
-      generateURL(url) {
-        return url;
-      }
+      go(url){
+        console.log(url);
+        let origin = location.origin;
+        let urlToGo = `${origin}/#/${url}`
+        //this.$router.replace(urlToGo)
+        this.$router.push({ path: '/', query: { url: url } })
+      },
+
     },
     watch: {
       downloaded_videos() {
@@ -91,7 +121,7 @@
       }
     },
     computed: {
-      loading(){
+      loading() {
         return this.$store.state.loading;
       },
       downloaded_videos() {
@@ -102,8 +132,15 @@
 
 </script>
 <style scoped lang="scss">
+    .thumb_container {
+        width: 100px;
+        .thumb{
+            margin: .5rem 0;
+        }
+    }
     .link {
         color: #447ff4 !important;
         font-weight: 900;
     }
+
 </style>
