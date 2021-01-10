@@ -7,4 +7,7 @@ export default {
             mutator: "commitMetaData"
         })
     },
+    cancelLoading(store){
+        store.state.loading = false
+    }
 }

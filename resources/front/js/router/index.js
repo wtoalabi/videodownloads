@@ -16,7 +16,7 @@ const router = new VueRouter.default({
             beforeEnter(to, from, next) {
                 //Store.dispatch('getContent');
                 next()
-            }
+            },
         },
         ...help,
         ...downloaded_videos,

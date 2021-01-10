@@ -108,9 +108,6 @@
       },
       go(url){
         console.log(url);
-        let origin = location.origin;
-        let urlToGo = `${origin}/#/${url}`
-        //this.$router.replace(urlToGo)
         this.$router.push({ path: '/', query: { url: url } })
       },
 

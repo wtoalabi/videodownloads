@@ -63,6 +63,10 @@
     mounted() {
       this.$store.commit("fakeVideoData")
     },
+    beforeRouteLeave(a,b,next){
+      this.$store.dispatch("cancelLoading");
+      next();
+    },
     components: {Youtube},
     data() {
       return {
