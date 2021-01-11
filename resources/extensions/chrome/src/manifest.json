@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Video Downloads Chrome Extension",
+    "description": "This extension installs a download button on youtube, which links to the download page on the videodownload platform",
+    "version": "0.0.1",
+    "web_accessible_resources": [
+        "assets/images/*"
+    ],
+    "browser_action": {
+        "default_icon": "assets/images/logo.png"
+    },
+    "icons": {
+        "16": "assets/images/logo.png",
+        "48": "assets/images/logo.png",
+        "128": "assets/images/logo.png"
+    },
+    "content_scripts": [
+        {
+            "css": [
+                "css/extension.css"
+            ],
+            "js": [
+                "js/extension.js"
+            ],
+            "matches": [
+                "https://www.youtube.com/*",
+                "https://videodownloads.loc/*"
+            ]
+        }
+    ]
+}

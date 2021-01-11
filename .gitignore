@@ -15,4 +15,5 @@ yarn-error.log
 /resources/admin/node_modules
 /resources/shared/node_modules
 /resources/front/node_modules
+/resources/extensions/chrome/node_modules/*
 

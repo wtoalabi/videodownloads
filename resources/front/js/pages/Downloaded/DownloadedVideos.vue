@@ -38,7 +38,7 @@
                             class="link"
                             @click.prevent="go(item.data.url)"
                             href="">{{item.data.title |
-                            shorten(50)}}</a>
+                            shorten(40)}}</a>
                         <a class="ml-2" :href="item.data.url" target="_blank">
                             <v-icon small>mdi-open-in-new</v-icon>
                         </a>

@@ -5,7 +5,7 @@ const mix = require('laravel-mix');
  | Aliases
  |--------------------------------------------------------------------------
  */
-mix.setPublicPath('../../public/shared');
+mix.setPublicPath('./src/');
 if (mix.inProduction()) {
     mix.webpackConfig({
         watchOptions: {
@@ -18,9 +18,6 @@ mix.webpackConfig({
         ignored: /node_modules/,
     },
 });
-mix.js('../../resources/shared/js/shared.js', 'js')
-    .extract(['lodash-es', 'axios', 'vuex', 'vue-router'],'vendors')
-    .options({
-        extractVueStyles: false,
-    })
+mix.js('./dev/js/extension.js', 'js');
+mix.sass('./dev/styles/extension.scss', 'css')
     .disableSuccessNotifications();

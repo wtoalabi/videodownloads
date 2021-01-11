@@ -88,6 +88,13 @@
           303: "Video",
           298: "Video",
           299: "Video",
+          240: "Video",
+          399: "Video",
+          398: "Video",
+          397: "Video",
+          396: "Video",
+          395: "Video",
+          394: "Video",
 
         }
       }
@@ -107,6 +114,7 @@
         return `${fSize.value} ${fSize.unit}`
       },
       reformatFormatTitle(format) {
+        //return format;
         return format.split("-")[1].trim()
       },
       getFormatType(type) {

@@ -1,0 +1,36 @@
+.download_videos_chrome_extension {
+    align-items: center;
+    button.click_to_download {
+        margin-right: .5rem;
+        height: 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f05145;
+        cursor: pointer;
+        font-weight: 600;
+        line-height: 2.5 !important;
+        vertical-align: middle;
+        padding: 0 1em;
+        border-radius: 34px;
+        color: #fff;
+        font-size: 1.3rem;
+        width: auto;
+        border: none;
+        &:focus {
+            outline:0;
+        }
+        .img_container {
+            height: 22px;
+            margin-right: 15px;
+
+            img {
+                width: 25px;
+            }
+        }
+    }
+}
+.playlist_button{
+    border-radius: unset !important;
+    margin: 1rem auto auto !important;
+}

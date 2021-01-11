@@ -7,12 +7,12 @@
         dense
     >
         <v-app-bar-nav-icon color="secondary" @click="setDrawer"></v-app-bar-nav-icon>
-        <v-icon
-            class="mx-4"
-            large
-        >
-            mdi-video-wireless-outline
-        </v-icon>
+        <div class="logo_container">
+            <v-img
+                width="100%"
+                height="100%"
+                src="/images/logo.svg"/>
+        </div>
         <v-toolbar-title class="mr-10 align-center title">
             <a @click.prevent="go('/')" class="title">Video Downloads</a>
         </v-toolbar-title>
@@ -48,9 +48,11 @@
 </script>
 <style scoped lang="scss">
     @import "~/scss/mixins";
-    a{
+
+    a {
         color: #fff !important;
     }
+
     .title {
         font-size: 1rem !important;
         @include min-md-up {
@@ -68,4 +70,12 @@
     .help {
         padding: 5px;
     }
+    .logo_container{
+        width: 44px;
+        height: 51px;
+        margin-right: .5rem;
+    }
 </style>
+<!--
+<div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+-->

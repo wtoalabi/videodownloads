@@ -9,6 +9,8 @@
     <meta property="og:title" content="@yield('ogtitle')" />
     <meta property="og:description" content="@yield('description')" />
     <meta property="og:image" content="@yield('image')" />
+    <link rel="shortcut icon" href="{{ asset('images/favicon.svg') }}">
+
 
     <title>{{$title}} | {{ config('app.name', 'Video Downloads') }}</title>
 
