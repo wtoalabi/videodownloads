@@ -202,6 +202,12 @@
             }
         }
 
+        /*
+
+        #!/bin/sh
+git --work-tree=/home/videodownloads/public_html --git-dir=/home/vd/repo/site.git checkout -f
+        */
+
         .error {
             color: red;
         }
