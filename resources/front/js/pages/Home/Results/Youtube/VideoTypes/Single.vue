@@ -33,10 +33,10 @@
 </template>
 
 <script>
-  import FormatsTable from "../Formats/FormatsTable";
+  import YoutubeFormatsTable from "../Formats/YoutubeFormatsTable";
   import CategoryChips from "./partials/CategoryChips";
   export default {
-    components: {FormatsTable, CategoryChips},
+    components: {YoutubeFormatsTable, CategoryChips},
     data() {
       return {}
     },

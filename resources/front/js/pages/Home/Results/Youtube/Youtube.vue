@@ -14,9 +14,7 @@
   import Playlist from "./VideoTypes/Playlist";
 
   export default {
-    mounted() {
-      this.$store.commit("saveIncomingURL", this.$route.query.url)
-    },
+    mounted() {},
     components:{Single,Playlist},
     data() {
       return {

@@ -49,7 +49,26 @@
                     </div>
                     <component :is="service"></component>
                 </v-col>
+                <v-col cols="12" sm="10" md="10" class="supported_service">
+                    <div>Supported Services:</div>
+                    <div style="display: flex; margin-top: 1rem;">
+                        <div style="margin-right:10px; color: #1da1f2; display: flex;align-items: center;">
+                            <div>
+                                <v-img src="/images/icons/twitter.svg" width="35px"></v-img>
+                            </div>
+                            <div>Twitter</div>
+                        </div>
+
+                        <div style="color: #ff0100;display: flex;align-items: center;">
+                            <div>
+                                <v-img src="/images/icons/youtube.svg" width="35px"></v-img>
+                            </div>
+                            <div>Youtube</div>
+                        </div>
+                    </div>
+                </v-col>
             </v-row>
+
             <v-spacer/>
         </div>
     </div>
@@ -58,21 +77,23 @@
 <script>
   import validations from "./url_validations";
   import Youtube from "./Results/Youtube/Youtube"
+  import Twitter from "./Results/Twitter/Twitter"
 
   export default {
     mounted() {
-      this.$store.commit("fakeVideoData")
+      //this.$store.commit("fakeVideoData")
+      this.$store.commit("saveIncomingURL", this.$route.query.url)
     },
-    beforeRouteLeave(a,b,next){
+    beforeRouteLeave(a, b, next) {
       this.$store.dispatch("cancelLoading");
       next();
     },
-    components: {Youtube},
+    components: {Youtube, Twitter},
     data() {
       return {
         reloadWithResult: 0,
         inputText: "",
-        service: "youtube",
+        service: "twitter",
         result: {},
         errorMessage: "",
         showErrorMessage: false,
@@ -128,8 +149,8 @@
         this.reloadWithResult++;
         this.inputText = "";
       },
-      incomingURL(){
-        this.inputText =  this.incomingURL
+      incomingURL() {
+        this.inputText = this.incomingURL
         this.processInput(this.inputText)
       }
     },
@@ -143,7 +164,7 @@
       results() {
         return this.$store.state.video.result;
       },
-      incomingURL(){
+      incomingURL() {
         return this.$store.state.video.incomingURL
       }
     }
@@ -189,7 +210,12 @@
             text-align: center;
             margin-top: 1rem;
         }
-
+        .supported_service{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
         /*.image {
             margin: auto;
             height: 9px;

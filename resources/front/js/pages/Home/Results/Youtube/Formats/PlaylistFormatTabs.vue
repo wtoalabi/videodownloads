@@ -28,7 +28,7 @@
 </template>
 
 <script>
-  import FormatsTable from "./FormatsTable";
+  import YoutubeFormatsTable from "./YoutubeFormatsTable";
 
   export default {
     data() {
@@ -37,7 +37,7 @@
         current_video: null,
       }
     },
-    components:{FormatsTable},
+    components:{YoutubeFormatsTable},
     methods: {
       active(video) {
         let clickedVideo = video.playlist_index;

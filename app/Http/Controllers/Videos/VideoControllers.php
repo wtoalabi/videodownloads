@@ -24,6 +24,7 @@ function SupportedServices($service) {
     
     $lists =  [
         'youtube' => Youtube::class,
+        'twitter' => Youtube::class,
     ];
     
     return new $lists[$service];

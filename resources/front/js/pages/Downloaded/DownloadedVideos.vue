@@ -24,7 +24,8 @@
 
             <template v-slot:item.thumb="{ item }">
                 <div class="thumb_container">
-                    <v-img class="thumb" height="100%" width="100%" :src="item.data.thumb"></v-img>
+                    <v-img class="thumb" height="100%" width="100%" style="margin: auto"
+                           :src="item.data.thumb"></v-img>
                 </div>
             </template>
 
@@ -38,7 +39,7 @@
                             class="link"
                             @click.prevent="go(item.data.url)"
                             href="">{{item.data.title |
-                            shorten(40)}}</a>
+                            shorten(35)}}</a>
                         <a class="ml-2" :href="item.data.url" target="_blank">
                             <v-icon small>mdi-open-in-new</v-icon>
                         </a>
@@ -48,6 +49,22 @@
             </template>
             <template v-slot:item.time="{ item }">
                 <span>{{item.data.time | format_date_from_timestamp}}</span>
+            </template>
+
+            <template v-slot:item.service="{ item }">
+                <div class="img-container">
+                    <v-tooltip bottom>
+                        <template v-slot:activator="{ on, attrs }">
+                            <v-img
+                                align="center"
+                                v-bind="attrs"
+                                v-on="on"
+                                :src="getServiceLogo(item.data.service)">
+                            </v-img>
+                        </template>
+                        <span>{{item.data.service}}</span>
+                    </v-tooltip>
+                </div>
             </template>
 
             <template v-slot:item.uploader="{ item }">
@@ -64,7 +81,7 @@
   export default {
     mounted() {
       this.$store.dispatch("getVideosFromStore");
-      this.$store.commit("fakeVideoData")
+      this.$store.commit("fakeVideoData");
     },
     data() {
       return {
@@ -87,6 +104,11 @@
             align: 'center',
             sortable: true,
             value: 'time',
+          }, {
+            text: 'Service',
+            align: 'center',
+            sortable: false,
+            value: 'service',
           },
           {
             text: 'Uploader',
@@ -106,10 +128,12 @@
           value.toString().toLowerCase().indexOf(search) !== -1
 
       },
-      go(url){
-        this.$router.push({ path: '/', query: { url: url } })
+      go(url) {
+        this.$router.push({path: '/', query: {url: url}})
       },
-
+      getServiceLogo(service) {
+        return `${location.origin}/images/icons/${service}.svg`;
+      }
     },
     watch: {
       downloaded_videos() {
@@ -130,13 +154,21 @@
 <style scoped lang="scss">
     .thumb_container {
         width: 100px;
-        .thumb{
+
+        .thumb {
             margin: .5rem 0;
         }
     }
+
     .link {
         color: #447ff4 !important;
         font-weight: 900;
     }
+.img-container{
+    margin: auto;
+    justify-content: center;
+    display: flex;
+    width: 25%;
+}
 
 </style>

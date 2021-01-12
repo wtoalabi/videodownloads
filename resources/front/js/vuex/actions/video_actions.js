@@ -17,9 +17,10 @@ export default {
         let url = video.webpage_url;
         let title = video.title;
         let time = Date.now();
+        let service = video.extractor;
         let uploader = video.uploader;
         let uploader_url = video.uploader_url;
-        let data = {url, title, time, uploader, uploader_url};
+        let data = {url, title, time, service, uploader, uploader_url};
 
         if(video.webpage_url_basename === "playlist"){
             data['thumb'] = video.entries[0].thumbnail;

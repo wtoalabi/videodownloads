@@ -1,9 +1,11 @@
 import store from '../../vuex';
 import playlist from "../fake/dumps/playlist";
 import single from "../fake/dumps/single";
+import twitter from "../fake/dumps/twitter/twitter";
 export default {
     commitProcessedVideoData(state, payload){
         state.video.results = JSON.parse(payload.data);
+        console.log(state.video.results,"RESULTS");
         store.dispatch("persistToLocalStore");
     },
     clearResults(state){
@@ -12,11 +14,11 @@ export default {
     },
     fakeVideoData(state){
         //state.video.results = single;
-        state.video.results = playlist;
+       // state.video.results = twitter;
         store.commit("commitCancelToken");
         //store.dispatch("persistToLocalStore");
         //console.log(single)
-        //console.log(playlist)
+        console.log(twitter)
         //state.video.results = single;
         /*
         */
