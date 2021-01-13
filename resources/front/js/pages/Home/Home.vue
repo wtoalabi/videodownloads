@@ -14,13 +14,13 @@
                     sm="10"
                     md="10"
                 >
-                    <div v-if="showErrorMessage">
+                    <div v-if="showErrorMessage && errorMessage">
                         <v-alert
                             text
                             rounded
                             type="error"
                         >
-                            {{errorMessage}}
+                            <div style="text-align: center">{{errorMessage}}</div>
                         </v-alert>
                     </div>
                     <v-text-field

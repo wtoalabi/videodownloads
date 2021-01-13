@@ -22,7 +22,7 @@
             
             if (!$process->isSuccessful()) {
                 $e = new ProcessFailedException($process);
-                Log::error($e);
+                Log::error($e->getMessage());
                 throw new Exception("Unable to download video...please try again later.");
             }
             

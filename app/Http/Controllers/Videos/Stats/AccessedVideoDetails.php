@@ -9,12 +9,16 @@
     class AccessedVideoDetails{
         public static function Run($data, $service) {
             $url = $data->webpage_url;
-            $now = now()->timestamp;
+            //$now = now()->timestamp;
+            $year = now()->year;
+            $month = now()->month;
+            $day = now()->day;
+            $date = $day."_".$month."_".$year;
             $title = $data->title;
             $data = json_encode([
                 'url' => $url,
                 'title' => $title,
             ]);
-            Redis::HSET("VideoDownloads:Details:$service", $now, $data);
+            Redis::HSET("VideoDownloads:Details:$service", "$date", $data);
         }
     }
