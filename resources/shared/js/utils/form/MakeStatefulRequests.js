@@ -57,6 +57,8 @@ export default async function Stateful(url, {
     }).catch(errorData => {
         if (errorData.response && errorData.response.status === 403) {
             return;
+        }else if(errorData.response.status === 419){
+            location.reload();
         }
         if (sendErrorDataBack) {
             store.commit("commitErrorData", errorData.response);

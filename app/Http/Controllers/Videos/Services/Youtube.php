@@ -24,7 +24,6 @@
                 Log::error($e);
                 throw new Exception("Unable to download video...please try again later.");
             }
-            
-            return response(['data' => $process->getOutput(), 'message' => "Done"], 200);
+            return $process->getOutput();
         }
     }

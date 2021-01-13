@@ -49,7 +49,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web/admin_api_routes.php')
                 );
             Route::domain(env("MAIN_URL_BASE"))
-                ->middleware(['web'])
+                ->middleware(['guest'])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web/front_routes.php')
                 );
