@@ -37,7 +37,7 @@
          * @return void
          */
         public function handle() {
-            Stats::Persist($this->data);
             
+            Stats::Persist($this->data);
         }
     }
