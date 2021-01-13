@@ -413,3 +413,9 @@ a{
         color: #000000ab;
     }
 }
+
+.header_menu_icon{
+    .mdi-menu::before {
+        font-size: 38px;
+    }
+}

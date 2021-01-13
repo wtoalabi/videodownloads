@@ -143,7 +143,6 @@
       serverError() {
         this.errorMessage = this.serverError;
         this.showErrorMessage = true;
-        console.log(this.serverError)
       },
       results() {
         this.reloadWithResult++;

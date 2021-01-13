@@ -25,7 +25,6 @@
     methods: {},
     computed: {
       activeColor(){
-        console.log()
         if(this.$route.name === "Home"){
           return 'red'
         }

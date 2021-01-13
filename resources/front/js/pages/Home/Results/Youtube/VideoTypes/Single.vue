@@ -26,7 +26,7 @@
       </v-row>
       <v-row style="display: flex; justify-content: center">
           <v-col cols="12">
-              <formats-table :prop-formats="results.formats"/>
+              <youtube-formats-table :prop-formats="results.formats"/>
           </v-col>
       </v-row>
   </div>

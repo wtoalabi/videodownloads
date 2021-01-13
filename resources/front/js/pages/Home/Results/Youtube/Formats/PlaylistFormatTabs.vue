@@ -20,7 +20,7 @@
                             {{video.title}}
                         </h3>
                     </v-alert>
-                    <formats-table :prop-formats="video.formats"/>
+                    <youtube-formats-table :prop-formats="video.formats"/>
                 </v-expansion-panel-content>
             </v-expansion-panel>
         </v-expansion-panels>

@@ -98,6 +98,7 @@
             align: 'start',
             sortable: false,
             value: 'video',
+            width: '300px'
           },
           {
             text: 'Date Accessed',
@@ -154,7 +155,7 @@
 <style scoped lang="scss">
     .thumb_container {
         width: 100px;
-
+        margin: .5rem 0;
         .thumb {
             margin: .5rem 0;
         }
@@ -164,11 +165,12 @@
         color: #447ff4 !important;
         font-weight: 900;
     }
-.img-container{
-    margin: auto;
-    justify-content: center;
-    display: flex;
-    width: 25%;
-}
+
+    .img-container {
+        margin: auto;
+        justify-content: center;
+        display: flex;
+        width: 25%;
+    }
 
 </style>

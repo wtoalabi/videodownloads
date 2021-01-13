@@ -41,7 +41,6 @@
 
   export default {
     mounted() {
-      console.log(this.formats);
     },
     props: {
       propFormats: {
@@ -101,8 +100,6 @@
     },
     methods: {
       downloadVideo(item) {
-        console.log(item, "ITEM");
-
         let anchor = document.createElement('a');
         anchor.href = item.url;
         anchor.target = '_blank';

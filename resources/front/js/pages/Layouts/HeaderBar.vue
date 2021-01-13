@@ -6,7 +6,7 @@
         color="primary"
         dense
     >
-        <v-app-bar-nav-icon color="secondary" @click="setDrawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon class="header_menu_icon" color="secondary" @click="setDrawer"></v-app-bar-nav-icon>
         <div class="logo_container">
             <v-img
                 width="100%"
@@ -48,7 +48,6 @@
 </script>
 <style scoped lang="scss">
     @import "~/scss/mixins";
-
     a {
         color: #fff !important;
     }
@@ -59,6 +58,7 @@
             font-size: 1.2rem !important;
         }
         @include min-lg-up {
+            margin-top: -6px;
             font-size: 1.6rem !important;
         }
     }
@@ -71,9 +71,10 @@
         padding: 5px;
     }
     .logo_container{
-        width: 44px;
-        height: 51px;
+        width: 28px;
+        height: 30px;
         margin-right: .5rem;
+        margin-top: 8px;
     }
 </style>
 <!--

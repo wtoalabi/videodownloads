@@ -5,7 +5,7 @@ import twitter from "../fake/dumps/twitter/twitter";
 export default {
     commitProcessedVideoData(state, payload){
         state.video.results = JSON.parse(payload.data);
-        console.log(state.video.results,"RESULTS");
+        //console.log(state.video.results,"RESULTS");
         store.dispatch("persistToLocalStore");
     },
     clearResults(state){
@@ -18,7 +18,7 @@ export default {
         store.commit("commitCancelToken");
         //store.dispatch("persistToLocalStore");
         //console.log(single)
-        console.log(twitter)
+        //console.log(twitter)
         //state.video.results = single;
         /*
         */

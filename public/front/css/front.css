@@ -30377,6 +30377,10 @@ a {
   color: #000000ab;
 }
 
+.header_menu_icon .mdi-menu::before {
+  font-size: 38px;
+}
+
 .downloaded_videos .v-data-table__mobile-row {
   display: flex !important;
   width: 100% !important;
