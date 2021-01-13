@@ -34,7 +34,7 @@
             // Horizon::routeMailNotificationsTo('example@example.com');
             // Horizon::routeSlackNotificationsTo('slack-webhook-url', '#channel');
             
-            // Horizon::night();
+            Horizon::night();
         }
         
         /**
@@ -45,12 +45,12 @@
          * @return void
          */
         protected function gate() {
-            Gate::define('viewHorizon', function ($user) {
+            /*Gate::define('viewHorizon', function ($user) {
                 return in_array($user->email, [
                     'wtoalabi@gmail.com',
                     'u@u.com'
                 ]);
-            });
+            });*/
             
         }
     }

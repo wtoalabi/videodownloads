@@ -173,6 +173,8 @@
                     'maxProcesses' => 10,
                     'balanceMaxShift' => 1,
                     'balanceCooldown' => 3,
+                    'processes' => 3,
+                    'tries' => 1,
                 ],
             ],
             'local' => [
