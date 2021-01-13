@@ -38,5 +38,6 @@
          */
         public function handle() {
             Stats::Persist($this->data);
+            
         }
     }
