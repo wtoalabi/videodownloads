@@ -15,6 +15,7 @@
     class Youtube implements Service{
         public function process($url) {
             $url = explode("&", $url)[0];
+            dd($url);
             $process = Process::fromShellCommandline("youtube-dl $url -J");
             
             $process->run();
