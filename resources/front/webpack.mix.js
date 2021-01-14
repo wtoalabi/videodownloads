@@ -1,3 +1,4 @@
+const path = require('path')
 const mix = require('laravel-mix');
 let purgeCss = require('purgecss-webpack-plugin');
 const LiveReloadPlugin = require('@kooneko/livereload-webpack-plugin');
