@@ -7,8 +7,10 @@ export default {
             mutator: "commitMetaData"
         })
     },
-    cancelLoading(store){
-        store.state.loading = false
-        store.state.cancelToken.cancel();
+    cancelLoading(store) {
+        store.state.loading = false;
+        if (store.state.cancelToken) {
+            store.state.cancelToken.cancel();
+        }
     }
 }
