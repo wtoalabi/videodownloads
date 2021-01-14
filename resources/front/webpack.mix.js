@@ -21,11 +21,11 @@ if (mix.inProduction()) {
         },
         plugins: [
 
-            new purgeCss({
-                //whitelistPatterns: [/(nav).*/,/(bg).*/, /(btn).*/],
+            /*new purgeCss({
+                //whitelistPatterns: [/(nav).*!/,/(bg).*!/, /(btn).*!/],
                 paths: glob.sync([
-                    path.join(__dirname, 'resources/front/html/**/*.blade.php'),
-                    path.join(__dirname, 'resources/front/js/assets/**/*.vue'),
+                    path.join(__dirname, 'resources/front/html/!**!/!*.blade.php'),
+                    path.join(__dirname, 'resources/front/js/assets/!**!/!*.vue'),
                 ]),
                 extractors: [
                     {
@@ -37,7 +37,7 @@ if (mix.inProduction()) {
                         extensions: ['html', 'js', 'php', 'vue']
                     }
                 ]
-            })
+            })*/
         ]
     }).version()
 }

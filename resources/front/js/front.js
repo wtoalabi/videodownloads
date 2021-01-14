@@ -1,6 +1,6 @@
 import Vue from 'vue'
 window.Vue = Vue;
-import Vuetify from './plugins/vuetify_main'
+import Vuetify from 'vuetify'
 import VuetifyOptions from "./plugins/vuetify_options";
 require('./bootstrap');
 import store from './vuex'
