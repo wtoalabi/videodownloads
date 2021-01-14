@@ -59,11 +59,18 @@
                             <div>Twitter</div>
                         </div>
 
-                        <div style="color: #ff0100;display: flex;align-items: center;">
+                        <div style="margin-right:10px; color: #ff0100;display: flex;align-items: center;">
                             <div>
                                 <v-img src="/images/icons/youtube.svg" width="35px"></v-img>
                             </div>
                             <div>Youtube</div>
+                        </div>
+
+                        <div style="color: #3b5998;display: flex;align-items: center;">
+                            <div>
+                                <v-img src="/images/icons/facebook.svg" width="35px"></v-img>
+                            </div>
+                            <div>Facebook</div>
                         </div>
                     </div>
                 </v-col>
@@ -78,6 +85,7 @@
   import validations from "./url_validations";
   import Youtube from "./Results/Youtube/Youtube"
   import Twitter from "./Results/Twitter/Twitter"
+  import Facebook from "./Results/Facebook/Facebook"
 
   export default {
     mounted() {
@@ -88,7 +96,7 @@
       this.$store.dispatch("cancelLoading");
       next();
     },
-    components: {Youtube, Twitter},
+    components: {Youtube, Twitter, Facebook},
     data() {
       return {
         reloadWithResult: 0,

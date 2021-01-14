@@ -7,10 +7,13 @@ Vue.filter('shorten', function (value, length) {
     return _.truncate(value, {length});
 });
 Vue.filter('full_date', function (date) {
-    let year = date.substr(0, 4);
-    let month = date.substr(4, 2);
-    let day = date.substr(6, 2);
-    return `${day} - ${month} - ${year}`;
+    if (date) {
+        let year = date.substr(0, 4);
+        let month = date.substr(4, 2);
+        let day = date.substr(6, 2);
+        return `${day} - ${month} - ${year}`;
+    }
+    return "Date Unknown";
 })
 
 Vue.filter('full_length', function (duration) {
@@ -24,6 +27,7 @@ Vue.filter('format_date_from_timestamp', function (timestamp) {
 Vue.filter('get_youtube_expiring_date', function (url) {
     let dateInDigits = parseInt(getParameterByName("expire", url)) * 1000;
     return formatDateFromTimestamp(dateInDigits);
+
     function getParameterByName(name, url) {
         name = name.replace(/[\[\]]/g, '\\$&');
         let regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),

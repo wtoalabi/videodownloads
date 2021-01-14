@@ -24,8 +24,16 @@
 
             <template v-slot:item.thumb="{ item }">
                 <div class="thumb_container">
-                    <v-img class="thumb" height="100%" width="100%" style="margin: auto"
+                    <v-img class="thumb" v-if="item.data.service !== 'facebook'" height="100%"
+                           width="100%" style="margin: auto"
                            :src="item.data.thumb"></v-img>
+                    <v-img
+                        v-else
+                        align="center"
+                        width="60px"
+                        style="margin: auto"
+                        :src="getServiceLogo(item.data.service)">
+                    </v-img>
                 </div>
             </template>
 
@@ -123,11 +131,13 @@
     },
     methods: {
       filterOnlyCapsText(value, search, item) {
-        value = item.data.title.toString().toLowerCase();
-        return search != null &&
-          typeof search === 'string' &&
-          value.toString().toLowerCase().indexOf(search) !== -1
-
+        let title = item.data.title;
+        if (title) {
+          value = item.data.title.toString().toLowerCase();
+          return search != null &&
+            typeof search === 'string' &&
+            value.toString().toLowerCase().indexOf(search) !== -1
+        }
       },
       go(url) {
         this.$router.push({path: '/', query: {url: url}})
@@ -156,6 +166,7 @@
     .thumb_container {
         width: 100px;
         margin: .5rem 0;
+
         .thumb {
             margin: .5rem 0;
         }
@@ -171,6 +182,10 @@
         justify-content: center;
         display: flex;
         width: 25%;
+    }
+
+    .facebook_container {
+
     }
 
 </style>

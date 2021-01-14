@@ -1,7 +1,8 @@
 export default {
     services: [
         "youtube",
-        "twitter"
+        "twitter",
+        "facebook"
     ],
     validUrl: function (str) {
         let pattern = new RegExp('^(https?:\\/\\/)?' + // protocol

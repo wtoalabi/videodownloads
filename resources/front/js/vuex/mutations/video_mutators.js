@@ -5,7 +5,8 @@ import twitter from "../fake/dumps/twitter/twitter";
 export default {
     commitProcessedVideoData(state, payload){
         state.video.results = JSON.parse(payload.data);
-        //console.log(state.video.results,"RESULTS");
+        console.log(state.video.results,"RESULTS");
+        //console.log(JSON.parse(payload.data))
         store.dispatch("persistToLocalStore");
     },
     clearResults(state){
