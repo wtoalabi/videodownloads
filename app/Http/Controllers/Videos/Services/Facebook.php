@@ -12,7 +12,7 @@
     use Symfony\Component\Process\Exception\ProcessFailedException;
     use Symfony\Component\Process\Process;
     
-    class Twitter implements Service
+    class Facebook implements Service
     {
         public function process($url) {
             $url = explode("&", $url)[0];
