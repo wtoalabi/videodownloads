@@ -18,8 +18,8 @@
             $service = request('service');
             $serviceInstance = SupportedServices($service);
             try {
-               // $data = $serviceInstance->process($url);
-                $data = $this->useTestData();
+                $data = $serviceInstance->process($url);
+               // $data = $this->useTestData();
                 JobsToPersistStats::dispatch(json_decode($data))->onQueue('stats');
                 return response(['data' => $data, 'message' => "Done"], 200);
             } catch (\Exception $e) {
