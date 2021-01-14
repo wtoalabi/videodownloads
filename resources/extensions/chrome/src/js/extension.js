@@ -67,7 +67,7 @@ function createButton(additional_class, text) {
   img.src = "chrome-extension://".concat(id, "/assets/images/logo.svg");
   button.addEventListener("click", function () {
     {
-      window.open("https://videodownloads.loc/#/?url=".concat(url === null ? location.href : url));
+      window.open("https://videodownloads.xyz/#/?url=".concat(url === null ? location.href : url));
     }
   });
   return button;
@@ -194,7 +194,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 			return checkDeferredModules();
 /******/ 		}
 /******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		var chunkLoadingGlobal = self["webpackChunkvideodownloads_chrome_extension"] = self["webpackChunkvideodownloads_chrome_extension"] || [];
 /******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
 /******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
 /******/ 		

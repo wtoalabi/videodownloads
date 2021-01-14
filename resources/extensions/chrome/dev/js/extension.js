@@ -64,7 +64,7 @@ function createButton(additional_class, text, url = null) {
     img.src = `chrome-extension://${id}/assets/images/logo.svg`;
     button.addEventListener("click", function () {
         {
-            window.open(`https://videodownloads.loc/#/?url=${url === null ? location.href : url}`)
+            window.open(`https://videodownloads.xyz/#/?url=${url === null ? location.href : url}`)
         }
     });
     return button;
