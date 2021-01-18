@@ -11,12 +11,15 @@
         "php": "^7.3",
         "ext-json": "*",
         "ext-redis": "*",
+        "fennb/phirehose": "^1.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "j7mbo/twitter-api-php": "^1.0",
         "laravel/framework": "^8.12",
         "laravel/horizon": "^5.6",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "vojant/twitter-php": "dev-master"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -31,6 +34,10 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
+    "classmap": [
+        "database",
+        "vendor/fennb/phirehose/lib"
+    ],
     "extra": {
         "laravel": {
             "dont-discover": []

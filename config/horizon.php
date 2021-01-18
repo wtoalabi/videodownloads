@@ -169,7 +169,7 @@
             'production' => [
                 'supervisor-1' => [
                     'connection' => env("QUEUE_DRIVER"),
-                    'queue' => ['stats', 'twitter'],
+                    'queue' => ['stats', 'process_tweet','persist_tweet','send_tweet'],
                     'maxProcesses' => 10,
                     'balanceMaxShift' => 1,
                     'balanceCooldown' => 3,
@@ -180,7 +180,7 @@
             'local' => [
                 'supervisor-1' => [
                     'connection' => env("QUEUE_DRIVER"),
-                    'queue' => ['stats','twitter'],
+                    'queue' => ['stats','process_tweet','persist_tweet','send_tweet'],
                     'balance' => 'simple',
                     'processes' => 3,
                     'tries' => 1,

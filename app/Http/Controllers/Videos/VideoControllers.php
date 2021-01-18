@@ -7,7 +7,7 @@
     use App\Http\Controllers\Videos\Services\Facebook;
     use App\Http\Controllers\Videos\Services\Youtube;
     use App\Http\Controllers\Videos\Stats\Stats;
-    use App\Jobs\Stats\JobsToPersistStats;
+    use App\Jobs\Stats\PersistStatsJobs;
     use Illuminate\Support\Facades\Log;
     use Illuminate\Support\Facades\Redis;
 
@@ -20,7 +20,7 @@
             try {
                 $data = $serviceInstance->process($url);
                // $data = $this->useTestData();
-                JobsToPersistStats::dispatch(json_decode($data))->onQueue('stats');
+                PersistStatsJobs::dispatch(json_decode($data))->onQueue('stats');
                 return response(['data' => $data, 'message' => "Done"], 200);
             } catch (\Exception $e) {
                 Log::error($e->getMessage(), $e->getTrace());
