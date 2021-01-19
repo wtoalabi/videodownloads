@@ -4,5 +4,51 @@
 */
 @import "variables";
 @import "../../shared/scss/vuetify.min";
+
 $body-font-family: "Maven Pro" !important;
 @import "mixins";
+.twitter_videos_table .v-data-table tbody {
+    tr.v-data-table__expanded__content {
+        box-shadow: none;
+    }
+
+    .v-data-table__mobile-row {
+        flex-direction: column;
+
+        .v-data-table__mobile-row__cell {
+            justify-content: center;
+            display: flex;
+            width: 100%;
+
+            .v-image {
+                width: 50px !important;
+            }
+        }
+
+        &:last-child {
+            margin: .71rem !important;
+        }
+    }
+}
+
+.downloaded_videos {
+    table .v-data-table__mobile-table-row {
+        .v-data-table__mobile-row {
+            flex-direction: column;
+
+            &:nth-child(2) {
+            }
+
+            .v-data-table__mobile-row__cell {
+                text-align: center;
+                .thumb_container{
+                    width: 70px !important;
+                    margin: 0.5rem 0 !important;
+                }
+                .img-container .v-image {
+                    width: 100px !important;
+                }
+            }
+        }
+    }
+}

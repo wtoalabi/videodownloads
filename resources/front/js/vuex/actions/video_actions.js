@@ -42,5 +42,15 @@ export default {
                 store.commit("commitVideosFromStore", data)
             }
         });
+    },
+    async getUserTwitterVideos(store, twitterID) {
+        store.commit("commitCancelToken");
+        await Stateful("user-tweet-videos", {
+            action: "post",
+            store,
+            sendErrorDataBack: true,
+            data: twitterID,
+            mutator: "commitTwitterVideoData"
+        });
     }
 }

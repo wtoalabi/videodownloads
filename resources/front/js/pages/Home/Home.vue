@@ -158,7 +158,7 @@
       },
       incomingURL() {
         this.inputText = this.incomingURL
-        this.processInput(this.inputText)
+        this.processInput(this.inputText);
       }
     },
     computed: {

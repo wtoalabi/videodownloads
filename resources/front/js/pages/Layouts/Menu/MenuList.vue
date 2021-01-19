@@ -10,7 +10,7 @@
             <v-list dense class="list">
                 <home_menu/>
                 <downloaded_videos_menu/>
-                <extension_menu/>
+                <twitter_downloads v-if="twitterID"/>
             </v-list>
         </v-navigation-drawer>
     </div>
@@ -19,7 +19,7 @@
 <script>
   import home_menu from "./menus/home_menu"
   import downloaded_videos_menu from "./menus/downloaded_videos_menu"
-  import extension_menu from "./menus/extension_menu"
+  import twitter_downloads from "./menus/twitter_downloads_menu"
 
   export default {
     props: {
@@ -29,7 +29,7 @@
     },
     mounted() {
     },
-    components: {home_menu, downloaded_videos_menu, extension_menu},
+    components: {home_menu, downloaded_videos_menu, twitter_downloads},
     data() {
       return {
         dialog: false,
@@ -50,6 +50,9 @@
           return this.$store.state.miniDrawer;
         },
       },
+      twitterID() {
+        return this.$store.state.video.twitterID
+      }
     },
   };
 </script>
