@@ -26,7 +26,6 @@
   export default {
 
     async mounted() {
-      console.log(this.twitterID,"MOUNTING")
       if (!this.twitterID) {
         await this.$store.commit("setTwitterID", this.$route.query.id);
       } else {

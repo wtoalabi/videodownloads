@@ -50,7 +50,7 @@
             $requestMethod = 'POST';
             $greetings = greetings($requester_name, $requester_screen_name);
             $postfields = array(
-                'status' => "$greetings. Your video is ready. Click here to download right away! https://videodownloads.xyz/?from_twitter=$requester_id",
+                'status' => "$greetings. Your video is ready. Click here to download right away! https://videodownloads.xyz/#/twitter_downloads?id=$requester_id",
                 'in_reply_to_status_id' => $request_id,
                 'auto_populate_reply_metadata' => true,
                 'possibly_sensitive' => false,

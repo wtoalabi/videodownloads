@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
     
     
     Route::prefix('f-api')->middleware(['front'])->group(function () {
-        Route::get('/meta-data', 'Front\Pages\FrontControllers@index')->name('haha');
-        Route::post('/process-video', 'Videos\VideoControllers@process')->name('haha');
+        Route::get('/meta-data', 'Front\Pages\FrontControllers@index');
+        Route::post('/process-video', 'Videos\VideoControllers@process');
+        Route::post('/user-tweet-videos', 'Videos\TweetVideoControllers@index');
     });

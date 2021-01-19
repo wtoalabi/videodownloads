@@ -95,7 +95,7 @@
           },
           {
             text: '',
-            align: 'center',
+            align: 'start',
             sortable: false,
             value: 'title',
           },
