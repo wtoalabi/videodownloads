@@ -4,7 +4,7 @@ let humanize = require('humanize-duration');
 let dateFormat = require("dateformat");
 
 Vue.filter('shorten', function (value, length) {
-    return _.truncate(value, {length});
+    return _.truncate(value, { length });
 });
 Vue.filter('full_date', function (date) {
     if (date) {
@@ -20,8 +20,8 @@ Vue.filter('full_length', function (duration) {
     return humanize(duration * 1000);
 });
 
-Vue.filter('format_date_from_timestamp', function (timestamp) {
-    return formatDateFromTimestamp(timestamp)
+Vue.filter('format_date_from_timestamp', function (timestamp, thousandth = 0) {
+    return formatDateFromTimestamp(timestamp * thousandth)
 });
 
 Vue.filter('get_youtube_expiring_date', function (url) {
